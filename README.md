@@ -9,3 +9,17 @@ CREATE TABLE `stock` (
   PRIMARY KEY  (`companyId`),
   UNIQUE KEY `tinNo` (`tinNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `product` (
+  `productId` varchar(200) NOT NULL,
+  `productName` varchar(200) default NULL,
+  `brandName` varchar(200) default NULL,
+  `model` varchar(200) default NULL,
+  `tinNo` int(11) default NULL,
+  `costPrice` float default NULL,
+  `sellingPrice` float default NULL,
+  `qty` varchar(200) default NULL,
+  PRIMARY KEY  (`productId`),
+  KEY `tinNo` (`tinNo`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`tinNo`) REFERENCES `stock` (`tinNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
