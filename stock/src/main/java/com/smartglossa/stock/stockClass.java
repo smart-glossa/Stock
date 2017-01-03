@@ -21,12 +21,12 @@ public class stockClass {
 
 	    }
 
-	    public void addstock(int companyId, String companyName, String address, int tinNo, String proprictor)
+	    public void addstock(int companyId, String companyName, String address, int tinNo, String proprietor)
 	            throws SQLException, ClassNotFoundException, JSONException {
 	        JSONObject objec = new JSONObject();
 	        try {
-	            String query = "insert into stock(companyId,companyName,address,tinNo,proprictor)values(" + companyId + ",'"
-	                    + companyName + "','" + address + "'," + tinNo+ ",'" + proprictor + "')";
+	            String query = "insert into stock(companyId,companyName,address,tinNo,proprietor)values(" + companyId + ",'"
+	                    + companyName + "','" + address + "'," + tinNo+ ",'" + proprietor + "')";
 	            stat.execute(query);
 	            objec.put("status", "1");
 	        } finally {
@@ -45,7 +45,7 @@ public class stockClass {
 	                get.put("companyName", rs.getString("companyName"));
 	                get.put("address", rs.getString("address"));
 	                get.put("tinNo", rs.getInt("tinNo"));
-	                get.put("proprictor", rs.getString("proprictor"));
+	                get.put("proprietor", rs.getString("proprietor"));
 	                result.put(get);
 	            }
 	            return result;
@@ -63,7 +63,7 @@ public class stockClass {
 	                one.put("companyName", rs.getString("companyName"));
 	                one.put("address", rs.getString("address"));
 	                one.put("tinNo", rs.getInt("tinNo"));
-	                one.put("", rs.getString("proprictor"));
+	                one.put("proprietor", rs.getString("proprietor"));
 	            }
 
 	        } finally {

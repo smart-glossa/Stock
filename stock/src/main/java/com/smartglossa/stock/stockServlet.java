@@ -37,11 +37,11 @@ public class stockServlet extends HttpServlet {
             String companyName = request.getParameter("companyName");
             String address = request.getParameter("address");
             int tinNo = Integer.parseInt(request.getParameter("tinNo"));
-            String proprictor=request.getParameter("proprictor");
+            String proprietor=request.getParameter("proprietor");
            
 			try {
 				stockClass stock = new stockClass();
-				stock.addstock(companyId, companyName, address, tinNo, proprictor);
+				stock.addstock(companyId, companyName, address, tinNo, proprietor);
 					
 				obj.put("status",1);
 			} catch (Exception e) {
@@ -57,11 +57,11 @@ public class stockServlet extends HttpServlet {
             String companyName = request.getParameter("companyName");
             String address = request.getParameter("address");
            int tinNo =Integer.parseInt( request.getParameter("tinNo"));
-            String proprictor = request.getParameter("address");
+            String proprietor = request.getParameter("address");
             JSONObject result = new JSONObject();
 			try {
 				stockClass stock = new stockClass();
-				 stock.updateStock(companyId, companyName, address, tinNo, proprictor);
+				 stock.updateStock(companyId, companyName, address, tinNo, proprietor);
 				 
 				 obj.put("status",1);
 				 } catch (Exception e) {
