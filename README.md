@@ -27,3 +27,14 @@ CREATE TABLE `productbrand` (
   KEY `productId` (`productId`),
   CONSTRAINT `productbrand_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `productprice` (
+  `Id` int(11) NOT NULL auto_increment,
+  `brandId` int(11) default NULL,
+  `quantity` int(11) default NULL,
+  `costprice` float default NULL,
+  `sellprice` float default NULL,
+  PRIMARY KEY  (`Id`),
+  KEY `brandId` (`brandId`),
+  CONSTRAINT `productprice_ibfk_1` FOREIGN KEY (`brandId`) REFERENCES `productbrand` (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
