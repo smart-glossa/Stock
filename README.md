@@ -18,3 +18,12 @@ CREATE TABLE `product` (
   KEY `tinNo` (`tinNo`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`tinNo`) REFERENCES `stock` (`tinNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `productbrand` (
+  `brandId` int(11) NOT NULL auto_increment,
+  `brandName` varchar(200) default NULL,
+  `productId` varchar(200) default NULL,
+  PRIMARY KEY  (`brandId`),
+  KEY `productId` (`productId`),
+  CONSTRAINT `productbrand_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
