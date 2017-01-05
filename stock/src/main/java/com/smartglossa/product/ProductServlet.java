@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.smartglossa.products.productClass;
 
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +33,7 @@ public class ProductServlet extends HttpServlet {
 			float sellprice = Float.parseFloat(request.getParameter("sellPrice"));
 			float qty = Float.parseFloat(request.getParameter("qty"));
 			try {
-				productClass products = new productClass();
+				ProductClass products = new ProductClass();
 				products.addproducts(pId, pName, tinNo, brandId, brandName, Id, qty, costprice, sellprice);
 				object.put("status", 1);
 			} catch (Exception e) {

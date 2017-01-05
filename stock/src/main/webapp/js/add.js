@@ -25,7 +25,7 @@ $(document).ready(function(){
 	if(prop==""){
 	alert("please enter proprictor");
 	}
-	var url="http://localhost:8080/stock/stock?operation=addStock&companyId="+cId+"&companyName="+cName+"&address="+address+"&tinNo="+tinNo+"&proprietor="+prop;
+	var url="/stock/stock?operation=addStock&companyId="+cId+"&companyName="+cName+"&address="+address+"&tinNo="+tinNo+"&proprietor="+prop;
 		$('input[type=text]').val();
 		$.ajax({
 			url:url,
@@ -93,9 +93,9 @@ $(document).ready(function(){
 	})
 	.done(function(result){
 	result=JSON.parse(result);
-	$("#cName").val(result.cname);
+	$("#cName").val(result.companyName);
 	$("#address").val(result.address);
-	$("#tinNo").val(result.tinno);
+	$("#tinNo").val(result.tinNo);
 	$("#prop").val(result.proprietor);
 	});
 	}
