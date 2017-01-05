@@ -19,17 +19,17 @@ public class ProductClass {
 
 	}
 
-	public void addproducts(int pId, String pName, int tinNo, int brandId, String brandName, int id, float qty,
+	public void addproducts(int pId, String pName, int tinNo, int brandId, String brandName,float qty,
 			float costprice, float sellprice) throws SQLException, ClassNotFoundException, JSONException {
 		JSONObject objec = new JSONObject();
 		try {
-			String query = "insert into product(productId,productName,tinNo)values('" + pId + "','" + pName + "','"
+			String query = "insert into products(productId,productName,tinNo)values('" + pId + "','" + pName + "','"
 					+ tinNo + "')";
 			sta.execute(query);
 			String query1 = "insert into productbrand(brandId,brandName,productId)values(" + brandId + ",'" + brandName
 					+ "'," + pId + ")";
 			sta.execute(query1);
-			String query2 = "insert into productprice(id,brandId,quantity,costprice,sellprice)values(" + id + ","
+			String query2 = "insert into productprice(id,brandId,quantity,costprice,sellprice)values("
 					+ brandId + "," + qty + "," + costprice + "," + sellprice + ")";
 			sta.execute(query2);
 			objec.put("status", "1");

@@ -24,7 +24,7 @@ public class stockClass {
 			throws SQLException, ClassNotFoundException, JSONException {
 		JSONObject objec = new JSONObject();
 		try {
-			String query = "insert into stock(companyId,companyName,address,tinNo,proprietor)values(" + companyId + ",'"
+			String query = "insert into stocks(companyId,companyName,address,tinNo,proprietor)values(" + companyId + ",'"
 					+ companyName + "','" + address + "'," + tinNo + ",'" + proprietor + "')";
 			stat.execute(query);
 			objec.put("status", "1");
@@ -36,7 +36,7 @@ public class stockClass {
 	public JSONArray getall() throws SQLException, ClassNotFoundException, JSONException {
 		JSONArray result = new JSONArray();
 		try {
-			String query = "select * from stock";
+			String query = "select * from stocks";
 			rs = stat.executeQuery(query);
 			while (rs.next()) {
 				JSONObject get = new JSONObject();

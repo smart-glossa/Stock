@@ -17,6 +17,13 @@
     	<servlet-name>ProductServlet</servlet-name>
     	<servlet-class>com.smartglossa.product.ProductServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProweightServlet</display-name>
+    	<servlet-name>ProweightServlet</servlet-name>
+    	<servlet-class>com.smartglossa.product.ProweightServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>stockServlet</servlet-name>
     	<url-pattern>/stock</url-pattern>
@@ -28,6 +35,10 @@
     <servlet-mapping>
     	<servlet-name>ProductServlet</servlet-name>
     	<url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProweightServlet</servlet-name>
+    	<url-pattern>/ProweightServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

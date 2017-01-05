@@ -28,13 +28,12 @@ public class ProductServlet extends HttpServlet {
 			int tinNo = Integer.parseInt(request.getParameter("tinNo"));
 			int brandId = Integer.parseInt(request.getParameter("brandId"));
 			String brandName = request.getParameter("brandName");
-			int Id = Integer.parseInt(request.getParameter("Id"));
 			float costprice = Float.parseFloat(request.getParameter("costPrice"));
 			float sellprice = Float.parseFloat(request.getParameter("sellPrice"));
 			float qty = Float.parseFloat(request.getParameter("qty"));
 			try {
 				ProductClass products = new ProductClass();
-				products.addproducts(pId, pName, tinNo, brandId, brandName, Id, qty, costprice, sellprice);
+				products.addproducts(pId, pName, tinNo, brandId, brandName,qty, costprice, sellprice);
 				object.put("status", 1);
 			} catch (Exception e) {
 				object.put("status", 0);
@@ -43,6 +42,7 @@ public class ProductServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().print(object);
+			
 
 		}
 
