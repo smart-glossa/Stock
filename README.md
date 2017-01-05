@@ -1,23 +1,25 @@
 # Stock
 Database:storesoft;
-CREATE TABLE `stock` (
-  `companyId` int(11) NOT NULL auto_increment,
-  `companyName` varchar(200) default NULL,
-  `address` varchar(200) default NULL,
+CREATE TABLE `stocks` (
+  `companyId` int(11) NOT NULL default '0',
+  `companyName` varchar(100) default NULL,
+  `address` varchar(100) default NULL,
   `tinNo` int(11) default NULL,
-  `proprictor` varchar(200) default NULL,
+  `proprietor` varchar(100) default NULL,
   PRIMARY KEY  (`companyId`),
   UNIQUE KEY `tinNo` (`tinNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
-CREATE TABLE `product` (
-  `productId` varchar(200) NOT NULL,
-  `productName` varchar(200) default NULL,
-  `tinNo` int(11) default NULL,
+CREATE TABLE `products` (
+  `productId` varchar(100) NOT NULL default '',
+  `productName` varchar(100) default NULL,
+  `tinNos` int(11) default NULL,
   PRIMARY KEY  (`productId`),
-  KEY `tinNo` (`tinNo`),
-  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`tinNo`) REFERENCES `stock` (`tinNo`)
+  UNIQUE KEY `tinNoss` (`tinNos`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`tinNos`) REFERENCES `stocks` (`tinNo`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
 
 CREATE TABLE `productbrand` (
   `brandId` int(11) NOT NULL auto_increment,
