@@ -71,7 +71,7 @@ $(document).ready(function(){
 	alert("pleasen enter your proprictor");
 	return;
 	}
-	var url="http://localhost:8080/stock/stock?operation=updateStock&companyId="+cId+"&companyName="+cName+"&address="+address+"&tinNo="+tinNo+"&proprietor="+prop;
+	var url="/stock/stock?operation=updateStock&companyId="+cId+"&companyName="+cName+"&address="+address+"&tinNo="+tinNo+"&proprietor="+prop;
 	$.ajax({
 	url:url,
 	type:'post'
@@ -86,7 +86,7 @@ $(document).ready(function(){
 	$(document).on('keyup','#cId',function(){
 	var cId=$('#cId').val();
 	if(cId!=""){
-	var url="http://localhost:8080/stock/stock?operation=getStock&companyId="+cId;
+	var url="/stock/stock?operation=getStock&companyId="+cId;
 	$.ajax({
 	url:url,
 	type:'post'
@@ -96,14 +96,14 @@ $(document).ready(function(){
 	$("#cName").val(result.cname);
 	$("#address").val(result.address);
 	$("#tinNo").val(result.tinno);
-	$("#prop").val(result.proprictor);
+	$("#prop").val(result.proprietor);
 	});
 	}
 	});
 	
 	function getAll(){
 		
-	var url="http://localhost:8080/stock/stock?operation=getAllstock";
+	var url="/stock/stock?operation=getAllstock";
 	$.ajax({
 	url:url,
 	type:'post'
