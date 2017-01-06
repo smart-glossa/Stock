@@ -35,12 +35,13 @@ Database:storesoft;
 
 
 
-4.CREATE TABLE `productPriceDetail` (
+4. CREATE TABLE `productPriceDetail` (
   `priceId` int(11) NOT NULL AUTO_INCREMENT,
   `brandId` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `costPrice` float DEFAULT NULL,
   `sellingPrice` float DEFAULT NULL,
+  `modelName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`priceId`),
   KEY `brandId` (`brandId`),
   CONSTRAINT `productPriceDetail_ibfk_1` FOREIGN KEY (`brandId`) REFERENCES `productBrand` (`brandId`)
