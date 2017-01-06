@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
-import org.json.JSONException;
+
 import org.json.JSONObject;
 
 public class stockServlet extends HttpServlet {
@@ -30,11 +30,11 @@ public class stockServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		JSONObject obj = new JSONObject();
 
-		if (operation.equals("addStock")) {
+		if (operation.equals("addCompanyDetail")) {
 			int companyId = Integer.parseInt(request.getParameter("companyId"));
 			String companyName = request.getParameter("companyName");
 			String address = request.getParameter("address");
-			int tinNo = Integer.parseInt(request.getParameter("tinNo"));
+			String tinNo = request.getParameter("tinNo");
 			String proprietor = request.getParameter("proprietor");
 
 			try {
@@ -50,11 +50,11 @@ public class stockServlet extends HttpServlet {
 			}
 			response.getWriter().print(obj);
 
-		} else if (operation.equals("updateStock")) {
+		} else if (operation.equals("updateCompanyDetail")) {
 			int companyId = Integer.parseInt(request.getParameter("companyId"));
 			String companyName = request.getParameter("companyName");
 			String address = request.getParameter("address");
-			int tinNo = Integer.parseInt(request.getParameter("tinNo"));
+			String tinNo = request.getParameter("tinNo");
 			String proprietor = request.getParameter("address");
 			JSONObject result = new JSONObject();
 			try {
@@ -70,7 +70,7 @@ public class stockServlet extends HttpServlet {
 			}
 			response.getWriter().print(result);
 
-		} else if (operation.equals("deleteStock")) {
+		} else if (operation.equals("deleteCompany")) {
 			int companyId = Integer.parseInt(request.getParameter("companyId"));
 			JSONObject delete = new JSONObject();
 			try {
@@ -85,7 +85,7 @@ public class stockServlet extends HttpServlet {
 			}
 			response.getWriter().print(delete);
 
-		} else if (operation.equals("getStock")) {
+		} else if (operation.equals("getCompanyDetail")) {
 			int companyId = Integer.parseInt(request.getParameter("companyId"));
 			JSONObject one = new JSONObject();
 			try {
@@ -100,7 +100,7 @@ public class stockServlet extends HttpServlet {
 			}
 			response.getWriter().print(one);
 
-		} else if (operation.equals("getAllstock")) {
+		} else if (operation.equals("getAllCompanyDetail")) {
 			JSONArray result = new JSONArray();
 			try {
 				stockClass stock = new stockClass();

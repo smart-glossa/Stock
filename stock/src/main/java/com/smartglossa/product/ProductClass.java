@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.json.JSONException;
-import org.json.JSONObject;
+
 
 public class ProductClass {
 	Connection conn = null;
@@ -19,20 +19,19 @@ public class ProductClass {
 
 	}
 
-	public void addproducts(int pId, String pName, int tinNo, int brandId, String brandName,float qty,
-			float costprice, float sellprice) throws SQLException, ClassNotFoundException, JSONException {
-		JSONObject objec = new JSONObject();
+	public void addproducts(String pId, String pName, int companyId) throws SQLException, ClassNotFoundException, JSONException {
 		try {
-			String query = "insert into products(productId,productName,tinNo)values('" + pId + "','" + pName + "','"
-					+ tinNo + "')";
+			String query = "Insert into product(productId,productName,companyId)values('" + pId + "','" + pName + "','"
+					+ companyId + "')";
 			sta.execute(query);
-			String query1 = "insert into productbrand(brandId,brandName,productId)values(" + brandId + ",'" + brandName
-					+ "'," + pId + ")";
-			sta.execute(query1);
-			String query2 = "insert into productprice(id,brandId,quantity,costprice,sellprice)values("
-					+ brandId + "," + qty + "," + costprice + "," + sellprice + ")";
-			sta.execute(query2);
-			objec.put("status", "1");
+		} finally {
+			closeConnection();
+		}
+	}
+	public void updateProduct(String pId, String pName, int companyId) throws SQLException, ClassNotFoundException, JSONException {
+		try {
+			String query = "update product set productName='" + pName + "',companyId=" + companyId +"' where productId='" + pId +"'"; 
+			sta.execute(query);
 		} finally {
 			closeConnection();
 		}

@@ -23,17 +23,13 @@ public class ProductServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		if (operation.equals("addProduct")) {
 			JSONObject object = new JSONObject();
-			int pId = Integer.parseInt(request.getParameter("pId"));
+			String pId = request.getParameter("pId");
 			String pName = request.getParameter("pName");
-			int tinNo = Integer.parseInt(request.getParameter("tinNo"));
-			int brandId = Integer.parseInt(request.getParameter("brandId"));
-			String brandName = request.getParameter("brandName");
-			float costprice = Float.parseFloat(request.getParameter("costPrice"));
-			float sellprice = Float.parseFloat(request.getParameter("sellPrice"));
-			float qty = Float.parseFloat(request.getParameter("qty"));
+			int companyId = Integer.parseInt(request.getParameter("companyId"));
+			
 			try {
 				ProductClass products = new ProductClass();
-				products.addproducts(pId, pName, tinNo, brandId, brandName,qty, costprice, sellprice);
+				products.addproducts(pId, pName, companyId);
 				object.put("status", 1);
 			} catch (Exception e) {
 				object.put("status", 0);
@@ -42,8 +38,24 @@ public class ProductServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().print(object);
-			
+		}else if(operation.equals("updateProduct")){
+			JSONObject obj = new JSONObject();
+			String pId = request.getParameter("pId");
+			String pName = request.getParameter("pName");
+			int companyId = Integer.parseInt(request.getParameter("companyId"));
+			try {
+				ProductClass products = new ProductClass();
+				products.updateProduct(pId, pName, companyId);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status", 0);
+				obj.put("message", e.getMessage());
 
+				e.printStackTrace();
+			}
+			response.getWriter().print(obj);
+		} else if(operation.equals("getOneProduct")){
+			JSONObject obj = new JSONObject();
 		}
 
 	}

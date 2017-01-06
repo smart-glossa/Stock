@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 public class stockClass {
 	Connection conn = null;
 	Statement stat = null;
@@ -20,14 +22,12 @@ public class stockClass {
 
 	}
 
-	public void addstock(int companyId, String companyName, String address, int tinNo, String proprietor)
+	public void addstock(int companyId, String companyName, String address, String tinNo, String proprietor)
 			throws SQLException, ClassNotFoundException, JSONException {
-		JSONObject objec = new JSONObject();
 		try {
-			String query = "insert into stocks(companyId,companyName,address,tinNo,proprietor)values(" + companyId + ",'"
+			String query = "insert into companyDetail(companyId,companyName,address,tinNumber,proprietor)values(" + companyId + ",'"
 					+ companyName + "','" + address + "'," + tinNo + ",'" + proprietor + "')";
 			stat.execute(query);
-			objec.put("status", "1");
 		} finally {
 			closeConnection();
 		}
@@ -36,14 +36,14 @@ public class stockClass {
 	public JSONArray getall() throws SQLException, ClassNotFoundException, JSONException {
 		JSONArray result = new JSONArray();
 		try {
-			String query = "select * from stocks";
+			String query = "select * from companyDetail";
 			rs = stat.executeQuery(query);
 			while (rs.next()) {
 				JSONObject get = new JSONObject();
 				get.put("companyId", rs.getInt("companyId"));
 				get.put("companyName", rs.getString("companyName"));
 				get.put("address", rs.getString("address"));
-				get.put("tinNo", rs.getInt("tinNo"));
+				get.put("tinNo", rs.getInt("tinNumber"));
 				get.put("proprietor", rs.getString("proprietor"));
 				result.put(get);
 			}
@@ -56,12 +56,12 @@ public class stockClass {
 	public JSONObject getone(int companyId) throws SQLException, ClassNotFoundException, JSONException {
 		JSONObject one = new JSONObject();
 		try {
-			String query = "select * from stock where companyId=" + companyId;
+			String query = "select * from companyDetail where companyId=" + companyId;
 			rs = stat.executeQuery(query);
 			if (rs.next()) {
 				one.put("companyName", rs.getString("companyName"));
 				one.put("address", rs.getString("address"));
-				one.put("tinNo", rs.getInt("tinNo"));
+				one.put("tinNo", rs.getInt("tinNumber"));
 				one.put("proprietor", rs.getString("proprietor"));
 			}
 
@@ -72,14 +72,12 @@ public class stockClass {
 
 	}
 
-	public void updateStock(int companyId, String companyName, String address, int tinNo, String proprictor)
+	public void updateStock(int companyId, String companyName, String address, String tinNo, String proprietor)
 			throws SQLException, ClassNotFoundException, JSONException {
-		JSONObject update = new JSONObject();
 		try {
-			String query = "update stock set companyName='" + companyName + "',address='" + address + "',tinNo='"
-					+ tinNo + "',proprictor='" + proprictor + "' where companyId=" + companyId;
+			String query = "update companyDetail set companyName='" + companyName + "',address='" + address + "',tinNumber='"
+					+ tinNo + "',proprietor='" + proprietor + "' where companyId=" + companyId;
 			stat.execute(query);
-			update.put("status", "1");
 
 		} finally {
 
@@ -88,9 +86,8 @@ public class stockClass {
 	}
 
 	public void deleteStock(int companyId) throws SQLException, ClassNotFoundException {
-		JSONObject delete = new JSONObject();
 		try {
-			String query = "delete from stock where companyId=" + companyId;
+			String query = "delete from companyDetail where companyId=" + companyId;
 			stat.execute(query);
 		} finally {
 			closeConnection();
@@ -98,8 +95,8 @@ public class stockClass {
 	}
 
 	private void openConnection() throws SQLException, ClassNotFoundException {
-		Class.forName(StockConstants.MYSQL_DRIVER);
-		conn = DriverManager.getConnection(StockConstants.MYSQL_SERVER + "/" + StockConstants.DATABASE,
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection("jdbc:mysql://" + StockConstants.MYSQL_SERVER + "/" + StockConstants.DATABASE,
 				StockConstants.USERNAME, StockConstants.PASSWORD);
 		stat = conn.createStatement();
 
