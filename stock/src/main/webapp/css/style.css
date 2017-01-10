@@ -1,0 +1,85 @@
+body{
+	background-color:#FFFAFA; 
+}
+span{
+	color:#3CB371;   
+}
+td{
+	font-size:22px;
+	font-family:"Times New Roman", Times, serif;  
+}
+.add{
+	position:absolute;
+	left:370px; 
+	top:50px; 
+}
+#comy{
+	
+	padding-left:50px;
+	font-family:"Times New Roman", Times, serif;
+	font-size:36px;     
+}
+input[type='text'], input[type='password']
+{
+	width: 200px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+}
+
+input[type='text']:hover, input[type='password']:hover
+{
+	width: 200px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+}
+textarea
+{
+	width: 200px;
+	height: 90px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+}
+textarea:hover
+{
+	width: 200px;
+	height: 90px;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+}
+input[type='submit']
+{
+	width: 110px;
+	height: 40px;
+	border: 2px solid white;
+	background-color:#CCC;
+}
+input[type='submit']:hover
+{
+	width: 110px;
+	height: 40px;
+	border: 2px solid white;
+	background-color:#000000;
+	color:#fff;
+}
