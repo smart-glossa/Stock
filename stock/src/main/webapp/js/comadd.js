@@ -19,7 +19,7 @@ function Menu() {
 	drpVar += "   <li class=\"dropdown\">";
 	drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Company Detail<\/a>";
 	drpVar += "    <div class=\"dropdown-content\">";
-	drpVar += "      <a href=\"#\">Add Detail<\/a>";
+	drpVar += "      <a href=\"#\"><div onclick=\"adddetail()\">Add Detail<\/div><\/a>";
 	drpVar += "      <a href=\"#\">All Detail<\/a>";
 	drpVar += "      <a href=\"#\">Link 3<\/a>";
 	drpVar += "    <\/div>";
@@ -35,5 +35,5 @@ function Menu() {
 	drpVar += "  <\/li>";
 	drpVar += "<\/ul>";
 	drpVar += "";
-	$('.add')[0].innerHTML = comadd;
+	$('.drop')[0].innerHTML = drpVar;
 }
