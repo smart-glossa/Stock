@@ -11,3 +11,29 @@ function adddetail() {
 	comadd += "<tr><td><\/td><td><input type=\"submit\" id=\"comadd\" value=\"SUBMIT\">&nbsp;&nbsp;<input type=\"submit\" id=\"comup\" value=\"UPDATE\"><\/td><\/tr>";
 	$('.add')[0].innerHTML = comadd;	
 }
+
+/*****************Drop-Down***************/
+function Menu() {
+	var drpVar="";
+	drpVar += "<ul>";
+	drpVar += "   <li class=\"dropdown\">";
+	drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Company Detail<\/a>";
+	drpVar += "    <div class=\"dropdown-content\">";
+	drpVar += "      <a href=\"#\">Add Detail<\/a>";
+	drpVar += "      <a href=\"#\">All Detail<\/a>";
+	drpVar += "      <a href=\"#\">Link 3<\/a>";
+	drpVar += "    <\/div>";
+	drpVar += "  <\/li>";
+	drpVar += "  <li><a href=\"#news\">News<\/a><\/li>";
+	drpVar += "  <li class=\"dropdown\">";
+	drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
+	drpVar += "    <div class=\"dropdown-content\">";
+	drpVar += "      <a href=\"#\">Link 1<\/a>";
+	drpVar += "      <a href=\"#\">Link 2<\/a>";
+	drpVar += "      <a href=\"#\">Link 3<\/a>";
+	drpVar += "    <\/div>";
+	drpVar += "  <\/li>";
+	drpVar += "<\/ul>";
+	drpVar += "";
+	$('.add')[0].innerHTML = comadd;
+}
