@@ -2,7 +2,7 @@
 Database:storesoft;
 
 
-1. CREATE TABLE `companyDetail` (
+1. CREATE TABLE `company` (
   `companyId` int(11) NOT NULL,
   `companyName` varchar(255) NOT NULL,
   `tinNumber` varchar(255) NOT NULL,
@@ -16,36 +16,33 @@ Database:storesoft;
 2.CREATE TABLE `product` (
   `productId` varchar(255) NOT NULL,
   `productName` varchar(255) DEFAULT NULL,
-  `companyId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`productId`),
-  KEY `companyId` (`companyId`),
-  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`companyId`) REFERENCES `companyDetail` (`companyId`)
+  `parentProductId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`productId`)
 )
 
 
-
-3.CREATE TABLE `productBrand` (
-  `brandId` int(11) NOT NULL AUTO_INCREMENT,
-  `brandName` varchar(255) DEFAULT NULL,
-  `productId` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`brandId`),
-  KEY `productId` (`productId`),
-  CONSTRAINT `productBrand_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
-)
-
-
-
-4. CREATE TABLE `productPriceDetail` (
+3. CREATE TABLE `productPrice` (
   `priceId` int(11) NOT NULL AUTO_INCREMENT,
-  `brandId` int(11) DEFAULT NULL,
+  `productId` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `costPrice` float DEFAULT NULL,
-  `sellingPrice` float DEFAULT NULL,
-  `modelName` varchar(255) DEFAULT NULL,
+  `buyPrice` float DEFAULT NULL,
+  `sellPrice` float DEFAULT NULL,
   PRIMARY KEY (`priceId`),
-  KEY `brandId` (`brandId`),
-  CONSTRAINT `productPriceDetail_ibfk_1` FOREIGN KEY (`brandId`) REFERENCES `productBrand` (`brandId`)
+  CONSTRAINT `productPriceDetail_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`)
 )
+
+4.CREATE TABLE `companyProduct` (
+  `linkId` int(11) NOT NULL AUTO_INCREMENT,
+  `companyId` int(11) DEFAULT NOT NULL,
+  `priceId` int(11) DEFAULT NOT NULL,
+  PRIMARY KEY (`linkId`),
+  CONSTRAINT `companyProduct_ibfk_1` FOREIGN KEY (`companyId`) REFERENCES `company` (`companyId`)
+  CONSTRAINT `companyProduct_ibfk_1` FOREIGN KEY (`priceId`) REFERENCES `productPrice` (`priceId`)
+)
+
+
+
+
 
 
 
