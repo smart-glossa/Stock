@@ -16,9 +16,10 @@ public class CompanyClass {
 	public CompanyClass() throws Exception {
 		openConnection();
 	}
- public void addcompany(String prodid ,String prodname, String parid) throws SQLException{
+ public void addcompany(int comid ,int priceid) throws SQLException{
 	 try {
-		String qry="insert into "
+		String qry="insert into companyProduct(companyId,priceId)values("+comid+","+priceid+")";
+		stat.execute(qry);
 	} finally {
 		closeConnection();
 	}
@@ -29,7 +30,7 @@ public class CompanyClass {
 		// String URL = "jdbc:mysql://" + StockConstant.MYSQL_SERVER + "/" +
 		// StockConstant.DATABASE_NAME;
 		String URL = "jdbc:mysql://localhost:3306/storesoft";
-		con = DriverManager.getConnection(URL, CompanyConstant.USERNAME, CompanyClass.PASSWORD);
+		con = DriverManager.getConnection(URL, CompanyConstant.USERNAME, CompanyConstant.PASSWORD);
 		stat = con.createStatement();
 
 	}
