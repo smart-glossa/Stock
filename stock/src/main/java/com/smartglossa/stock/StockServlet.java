@@ -36,6 +36,36 @@ public class StockServlet extends HttpServlet {
 				obj.put("message", e.getMessage());
 			}
 			response.getWriter().print(obj);
+		} else if (op.equals("updatedetail")) {
+			JSONObject obj = new JSONObject();
+			int ucomid = Integer.parseInt(request.getParameter("ucomid"));
+			String ucomname = request.getParameter("ucomName");
+			String utno = request.getParameter("utinNo");
+			String uprop = request.getParameter("uprop");
+			String uaddr = request.getParameter("uaddr");
+			try {
+				StockClass update = new StockClass();
+				update.updateDetail(ucomid, ucomname, utno, uprop, uaddr);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status", 0);
+				e.printStackTrace();
+				obj.put("message", e.getMessage());
+			}
+			response.getWriter().print(obj);
+		} else if (op.equals("getcompany")) {
+			int ucomid = Integer.parseInt(request.getParameter("ucomid"));
+			JSONObject obj = new JSONObject();
+			try {
+				StockClass getone = new StockClass();
+				obj = getone.getOne(ucomid);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status", 0);
+				e.printStackTrace();
+				obj.put("message", e.getMessage());
+			}
+			response.getWriter().print(obj);
 		}
 	}
 
