@@ -37,7 +37,6 @@ public class ProductClass {
 			closeConnection();
 		}
 	}
-
 	public JSONObject getProduct(String prdid) throws SQLException {
 		JSONObject prod = new JSONObject();
 		try {

@@ -2,7 +2,6 @@ package com.smartglossa.product;
 
 import java.io.IOException;
 
-import javax.print.DocFlavor.STRING;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
