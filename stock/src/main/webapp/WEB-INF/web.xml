@@ -8,9 +8,42 @@
     	<servlet-name>StockServlet</servlet-name>
     	<servlet-class>com.smartglossa.stock.StockServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ProductServlet</display-name>
+    	<servlet-name>ProductServlet</servlet-name>
+    	<servlet-class>com.smartglossa.product.ProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>PriceServlet</display-name>
+    	<servlet-name>PriceServlet</servlet-name>
+    	<servlet-class>com.smartglossa.price.PriceServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>CompanyServlet</display-name>
+    	<servlet-name>CompanyServlet</servlet-name>
+    	<servlet-class>com.smartglossa.companyProduct.CompanyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>StockServlet</servlet-name>
     	<url-pattern>/stock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProductServlet</servlet-name>
+    	<url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>PriceServlet</servlet-name>
+    	<url-pattern>/PriceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>CompanyServlet</servlet-name>
+    	<url-pattern>/CompanyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
