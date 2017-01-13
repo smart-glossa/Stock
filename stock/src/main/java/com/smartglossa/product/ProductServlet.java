@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ProductServlet extends HttpServlet {
@@ -22,12 +23,10 @@ public class ProductServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		if (operation.equals("prodadd")) {
 			JSONObject obj = new JSONObject();
-			String prodid = request.getParameter("prodid");
 			String prodname = request.getParameter("prodName");
-			String parid = request.getParameter("parid");
 			try {
 				ProductClass add = new ProductClass();
-				add.addProd(prodid, prodname, parid);
+				add.addProd(prodname);
 				obj.put("status", 1);
 			} catch (Exception e) {
 				obj.put("status", 0);
@@ -35,6 +34,18 @@ public class ProductServlet extends HttpServlet {
 				obj.put("message", e.getMessage());
 			}
 			response.getWriter().print(obj);
+		} else if (operation.equals("productAdd")) {
+			JSONObject obj = new JSONObject();
+			String prodname = request.getParameter("prodName");
+			int parentid = Integer.parseInt(request.getParameter("parentid"));
+			try {
+				ProductClass prodadd = new ProductClass();
+				prodadd.addProduct(prodname, parentid);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status", 0);
+			}
+			response.getWriter().println(obj);
 		} else if (operation.equals("updateprod")) {
 			JSONObject obj = new JSONObject();
 			String prdid = request.getParameter("uprodid");
@@ -64,6 +75,22 @@ public class ProductServlet extends HttpServlet {
 				get.put("message", e.getMessage());
 			}
 			response.getWriter().print(get);
+		}else if(operation.equals("getParent")){
+			JSONArray obj=new JSONArray();
+			int parentid=Integer.parseInt(request.getParameter("parentid"));
+			try {
+				ProductClass pat=new ProductClass();
+				obj=pat.getParent(parentid);
+				
+			} catch (Exception e) {
+				JSONObject error=new JSONObject();
+				error.put("states", 0);
+				obj.put(error);
+				e.printStackTrace();
+				error.put("message",e.getMessage());
+			
+			}
+			response.getWriter().print(obj);
 		}
 	}
 

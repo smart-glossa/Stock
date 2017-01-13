@@ -8,7 +8,6 @@ import java.sql.Statement;
 
 import org.json.JSONObject;
 
-
 public class PriceClass {
 	Connection conn = null;
 	ResultSet res = null;
@@ -22,6 +21,16 @@ public class PriceClass {
 		try {
 			String query = "insert into productPrice(productId,quantity,buyPrice,sellPrice)values(" + prodid + "," + qty
 					+ "," + bprice + "," + sprice + ") ";
+			stat.execute(query);
+		} finally {
+			closeConnection();
+		}
+	}
+
+	public void priceupdate(int priceid, int prodid, int qty, float bprice, float sprice) throws SQLException {
+		try {
+			String query = "update  productPrice set productId=" + prodid + ",quentity=" + qty + ",buyPrice=" + bprice
+					+ ",sellPrice=" + sprice + " where priceId=" + priceid;
 			stat.execute(query);
 		} finally {
 			closeConnection();
@@ -52,7 +61,7 @@ public class PriceClass {
 		// String URL = "jdbc:mysql://" + StockConstant.MYSQL_SERVER + "/" +
 		// StockConstant.DATABASE_NAME;
 		String URL = "jdbc:mysql://localhost:3306/storesoft";
-		conn = DriverManager.getConnection(URL, PriceConstant.USERNAME,PriceConstant.PASSWORD);
+		conn = DriverManager.getConnection(URL, PriceConstant.USERNAME, PriceConstant.PASSWORD);
 		stat = conn.createStatement();
 
 	}

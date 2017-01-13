@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
-
 public class CompanyClass {
 	Connection con = null;
 	Statement stat = null;
@@ -16,14 +14,15 @@ public class CompanyClass {
 	public CompanyClass() throws Exception {
 		openConnection();
 	}
- public void addcompany(int comid ,int priceid) throws SQLException{
-	 try {
-		String qry="insert into companyProduct(companyId,priceId)values("+comid+","+priceid+")";
-		stat.execute(qry);
-	} finally {
-		closeConnection();
+
+	public void addcompany(int comid, int priceid) throws SQLException {
+		try {
+			String qry = "insert into companyProduct(companyId,priceId)values(" + comid + "," + priceid + ")";
+			stat.execute(qry);
+		} finally {
+			closeConnection();
+		}
 	}
- }
 
 	private void openConnection() throws Exception {
 		Class.forName(CompanyConstant.MYSQL_DRIVER);

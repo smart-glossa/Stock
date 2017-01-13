@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ProductClass {
@@ -17,14 +18,25 @@ public class ProductClass {
 		openConnection();
 	}
 
-	public void addProd(String prodid, String prodname, String parid) throws SQLException {
+	public void addProd(String prodname) throws SQLException {
 		try {
-			String qry = "insert into product(productId,productName,parentProductId)values('" + prodid + "','"
-					+ prodname + "','" + parid + "') ";
+
+			String qry = "insert into product(productName)values('" + prodname + "')";
 			stat.execute(qry);
 		} finally {
 			closeConnection();
 		}
+	}
+
+	public void addProduct(String prodname, int parentid) throws SQLException {
+		try {
+			String query = "insert into product(productName,parentProductId)values('" + prodname + "'," + parentid
+					+ ")";
+			stat.execute(query);
+		} finally {
+			closeConnection();
+		}
+
 	}
 
 	public void updateProd(String prdid, String prodname, String parid) throws SQLException {
@@ -37,6 +49,24 @@ public class ProductClass {
 			closeConnection();
 		}
 	}
+	public JSONArray getParent(int parentid) throws SQLException{
+		JSONArray parent=new JSONArray();
+		try {
+			String query="select * from product where parentProductId=null";
+			res=stat.executeQuery(query);
+			while(res.next()){
+				JSONObject ss=new JSONObject();
+				ss.put("prodid",res.getInt(1));
+				ss.put("prodname", res.getInt(2));
+				parent.put(ss);
+			}
+		} finally {
+			closeConnection();
+			
+		}
+		return parent;
+	}
+
 	public JSONObject getProduct(String prdid) throws SQLException {
 		JSONObject prod = new JSONObject();
 		try {

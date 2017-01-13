@@ -16,24 +16,25 @@ public class CompanyServlet extends HttpServlet {
 
 		doPost(request, response);
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operation = request.getParameter("operation");
 		if (operation.equals("companyprodAdd")) {
-			JSONObject obj=new JSONObject();
-          int comId=Integer.parseInt(request.getParameter("comId"));
-          int priceid=Integer.parseInt(request.getParameter("priceId"));
-          try {
-			CompanyClass add=new CompanyClass();
-			add.addcompany(comId, priceid);
-			obj.put("status",1);
-		} catch (Exception e) {
-            obj.put("status",0);
-            e.printStackTrace();
-            obj.put("message",e.getMessage());
-		}
-          response.getWriter().print(obj);
-          
+			JSONObject obj = new JSONObject();
+			int comId = Integer.parseInt(request.getParameter("comId"));
+			int priceid = Integer.parseInt(request.getParameter("priceId"));
+			try {
+				CompanyClass add = new CompanyClass();
+				add.addcompany(comId, priceid);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				obj.put("status", 0);
+				e.printStackTrace();
+				obj.put("message", e.getMessage());
+			}
+			response.getWriter().print(obj);
+
 		}
 	}
 

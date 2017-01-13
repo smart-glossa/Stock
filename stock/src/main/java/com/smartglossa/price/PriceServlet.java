@@ -1,13 +1,13 @@
 package com.smartglossa.price;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
-
 
 public class PriceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +22,7 @@ public class PriceServlet extends HttpServlet {
 		String op = request.getParameter("operation");
 		if (op.equals("priceAdd")) {
 			JSONObject obj = new JSONObject();
+			
 			int prodid = Integer.parseInt(request.getParameter("prodId"));
 			int qty = Integer.parseInt(request.getParameter("qty"));
 			float bprice = Float.parseFloat(request.getParameter("bPrice"));
@@ -37,17 +38,17 @@ public class PriceServlet extends HttpServlet {
 
 			}
 			response.getWriter().print(obj);
-		}else if(op.equals("getPrice")){
-			int priceid=Integer.parseInt(request.getParameter("priceId"));
-			JSONObject get=new JSONObject();
+		} else if (op.equals("getPrice")) {
+			int priceid = Integer.parseInt(request.getParameter("priceId"));
+			JSONObject get = new JSONObject();
 			try {
-				PriceClass getprice=new PriceClass();
-				get=getprice.getPrice(priceid);
+				PriceClass getprice = new PriceClass();
+				get = getprice.getPrice(priceid);
 				get.put("status", 1);
 			} catch (Exception e) {
-				get.put("status",0);
+				get.put("status", 0);
 				e.printStackTrace();
-				get.put("message",e.getMessage());
+				get.put("message", e.getMessage());
 			}
 			response.getWriter().println(get);
 		}

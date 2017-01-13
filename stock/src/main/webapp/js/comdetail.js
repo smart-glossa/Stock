@@ -104,37 +104,69 @@ $(document).ready(function() {
     alert("Please Check Details!..")
   });
  })
- $(document).on("keyup", "#ucomid", function() {
-	    var cid = $('#ucomid').val();
-	    if (cid != "") {
-	        var getUrl = "/stock/stock?operation=getcompany&ucomid=" + cid;
-	        $.ajax({
-	            url: getUrl,
-	            type: "POST"
-	        })
-	        .done(function(result) {
-	            result = JSON.parse(result);
-	            var cid = result.cid;
-	            var cname = result.cname;
-	            var tno=result.tno;
-	            var prop=result.prop;
-	            var addr=result.addr;
-	                    //var date=result.date;
-	                    $("#ucomid").val(cid);
-	                    $("#ucomName").val(cname);
-	                    $("#utinNo").val(tno);
-	                    $("#uprop").val(prop);
-	                    $("#uaddr").val(addr);
-	                    
-	                })
-	        .fail(function(result) {
-	            alert("Some Errors Please Enter correct value");
-	        });
-	    } else {
-	        $("#ucomName").val("");
-	        $("#utinNo").val("");
-	        $("#uprop").val("");
-	        $("#uaddr").val("");
-	    }
-	});
+  $(document).on("keyup", "#ucomid", function() {
+   var cid = $('#ucomid').val();
+   if (cid != "") {
+     var getUrl = "/stock/stock?operation=getcompany&ucomid=" + cid;
+     $.ajax({
+       url: getUrl,
+       type: "POST"
+     })
+     .done(function(result) {
+       result = JSON.parse(result);
+       var cid = result.cid;
+       var cname = result.cname;
+       var tno=result.tno;
+       var prop=result.prop;
+       var addr=result.addr;
+       
+       $("#ucomid").val(cid);
+       $("#ucomName").val(cname);
+       $("#utinNo").val(tno);
+       $("#uprop").val(prop);
+       $("#uaddr").val(addr);
+       
+     })
+     .fail(function(result) {
+       alert("Some Errors Please Enter correct value");
+     });
+   } else {
+     $("#ucomName").val("");
+     $("#utinNo").val("");
+     $("#uprop").val("");
+     $("#uaddr").val("");
+   }
+ });
+  $(document).on("click","#Addsubmit",function(key) {
+   var prodname = $('#prodName').val();
+   if(prodname==""){
+     $("#prodName").focus().css("outline-color", "#ff0000");
+     return;
+   }
+   var url = "/stock/Product?operation=prodadd&prodName="+prodname;
+   $.ajax({
+    url: url,
+    type: 'POST'
+  }).done(function(result) {
+    result =JSON.parse(result);
+    if(result.status == 1) {
+      alert("SuccessFully Added");
+      $('#prodName').val("");
+      
+    } else if(result.status == 0) {
+      alert("Error occurs");
+    }
+
+  }).fail(function(result) {
+   result=JSON.parse(result);
+   if(result.status==0)
+   {
+    alert("Please Check Details!..");
+  }
+  
+  
+});
 })
+  
+  
+});
