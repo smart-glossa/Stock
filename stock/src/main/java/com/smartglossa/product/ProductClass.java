@@ -49,37 +49,37 @@ public class ProductClass {
 			closeConnection();
 		}
 	}
-	public JSONArray getParent() throws SQLException{
-		JSONArray parent=new JSONArray();
+
+	public JSONArray getParent() throws SQLException {
+		JSONArray parent = new JSONArray();
 		try {
-			String query="SELECT productId,productName FROM product where parentProductId IS null";
-			res=stat.executeQuery(query);
-			while(res.next()){
-				JSONObject ss=new JSONObject();
-				ss.put("prodid",res.getInt(1));
+			String query = "SELECT productId,productName FROM product where parentProductId IS null";
+			res = stat.executeQuery(query);
+			while (res.next()) {
+				JSONObject ss = new JSONObject();
+				ss.put("prodid", res.getInt(1));
 				ss.put("prodname", res.getString(2));
 				parent.put(ss);
 			}
 		} finally {
 			closeConnection();
-			
+
 		}
 		return parent;
 	}
-	public JSONArray getParentProduct(int parentid) throws SQLException{
-		JSONArray obj=new JSONArray();
+
+	public JSONArray getParentProduct(int parid) throws SQLException {
+		JSONArray obj = new JSONArray();
 		try {
-			String query="select productName from product where parentProductId="+parentid;
-			res=stat.executeQuery(query);
+			String query = "select productName from product where parentProductId=" + parid;
+			res = stat.executeQuery(query);
 			while (res.next()) {
-				JSONObject obj1=new JSONObject();
-				obj1.put("prodname",res.getString(1));
-				
-				
-				
+				JSONObject obj1 = new JSONObject();
+				obj1.put("prodname", res.getString(1));
+				obj.put(obj1);
 			}
 		} finally {
-			// TODO: handle finally clause
+			closeConnection();
 		}
 		return obj;
 	}

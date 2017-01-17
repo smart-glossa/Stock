@@ -91,6 +91,20 @@ public class ProductServlet extends HttpServlet {
 			
 			}
 			response.getWriter().print(obj);
+		}else if(operation.equals("gets")){
+			JSONArray val=new JSONArray();
+			int parid=Integer.parseInt(request.getParameter("parid"));
+			try {
+				ProductClass jj=new ProductClass();
+				val=jj.getParentProduct(parid);
+			} catch (Exception e) {
+				JSONObject error=new JSONObject();
+				error.put("status",0);
+				error.put("message",e.getMessage());
+				e.printStackTrace();
+				val.put(error);
+			}
+			response.getWriter().print(val);
 		}
 	}
 
