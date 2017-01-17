@@ -68,10 +68,10 @@ public class ProductClass {
 		return parent;
 	}
 
-	public JSONArray getParentProduct(int parid) throws SQLException {
+	public JSONArray getParentProduct(int prodid) throws SQLException {
 		JSONArray obj = new JSONArray();
 		try {
-			String query = "select productName from product where parentProductId=" + parid;
+			String query = "select productName from product where parentProductId=" + prodid;
 			res = stat.executeQuery(query);
 			while (res.next()) {
 				JSONObject obj1 = new JSONObject();

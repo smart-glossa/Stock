@@ -51,3 +51,8 @@ label:before {
     pointer-events:none;
     display:block;
 }
+.sele2{
+	position:absolute;
+	left:200px;
+	top:100px;   
+}

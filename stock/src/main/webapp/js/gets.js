@@ -7,10 +7,11 @@ function displaybill() {
 	.done(
 		function(result) {
 			var array = JSON.parse(result);
-			var query = "<select>"
+			var query = "<select class='ss'>"
 					if(result!="undefined"){
 				for (var i = 0; i < array.length; i++) {
-					query += "<option class='ss',"+ array[i].prodid +">" + array[i].prodname+ "</option>";
+					//query += "<option class='prodid'</option>"
+					query += "<option value="+ array[i].prodid +" class='prodid'>" + array[i].prodname+ "</option>";
 					//query += "<option>" + array[i].prodname+ "</option>";
 					
 									}
@@ -24,19 +25,31 @@ function displaybill() {
 
 	}
 $(document).ready(function() {
-	 $(document).on("click", ".ss", function() {
-			// If user not confirmed, then dont execute, just return back.
-		// if (!confirm(" Delete Are you sure?")) {
-		  // return;
-	//	}
-		var tag = $(this).parent().parent();
-		var billno = tag.children(".parid")[0].innerHTML;
-		var url = "/arun/bill?operation=delete&abillno=" + billno;
+	 $(document).on("dblclick", ".ss", function() {
+		   var prodid = $('.prodid').val();
+		//var tag = $(this).parent().parent();
+		//var prodid = tag.children(".prodid")[0].innerHTML;
+		//http://localhost:8080/stock/Product?operation=gets&prodid=1
+		var url = "/stock/Product?operation=gets&prodid=" + prodid;
 		$.ajax({
 		    url: url,
 		    type: 'POST'
 		}).done(function(result) {
-		   tag.remove();
+			
+				var array = JSON.parse(result);
+				var query = "<select class='sele2'>"
+				query += "<tr><th>ParentProductName</th></tr>"
+				if(result!="undefined"){
+					for (var i = 0; i < array.length; i++) {
+					//	query += "<tr class='productRow'><td class='billno'>"
+						//+ array[i].billNO + "</td>";
+						query += "<option>" + array[i].prodname + "</option>";
+						
+					}
+				}
+				query += "</select>"
+				$(".adds")[0].innerHTML =query;
+
 		}).fail(function(result) {
 		    console.log(result)
 		});

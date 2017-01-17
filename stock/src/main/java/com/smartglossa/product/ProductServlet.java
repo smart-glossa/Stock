@@ -93,10 +93,10 @@ public class ProductServlet extends HttpServlet {
 			response.getWriter().print(obj);
 		}else if(operation.equals("gets")){
 			JSONArray val=new JSONArray();
-			int parid=Integer.parseInt(request.getParameter("parid"));
+			int prodid=Integer.parseInt(request.getParameter("prodid"));
 			try {
 				ProductClass jj=new ProductClass();
-				val=jj.getParentProduct(parid);
+				val=jj.getParentProduct(prodid);
 			} catch (Exception e) {
 				JSONObject error=new JSONObject();
 				error.put("status",0);
