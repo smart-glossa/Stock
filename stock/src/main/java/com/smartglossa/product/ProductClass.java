@@ -49,15 +49,15 @@ public class ProductClass {
 			closeConnection();
 		}
 	}
-	public JSONArray getParent(int parentid) throws SQLException{
+	public JSONArray getParent() throws SQLException{
 		JSONArray parent=new JSONArray();
 		try {
-			String query="select * from product where parentProductId=null";
+			String query="SELECT productId,productName FROM product where parentProductId IS null";
 			res=stat.executeQuery(query);
 			while(res.next()){
 				JSONObject ss=new JSONObject();
 				ss.put("prodid",res.getInt(1));
-				ss.put("prodname", res.getInt(2));
+				ss.put("prodname", res.getString(2));
 				parent.put(ss);
 			}
 		} finally {
