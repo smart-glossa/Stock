@@ -57,11 +57,13 @@ public class PriceClass {
 	}
 
 	private void openConnection() throws Exception {
-		Class.forName(PriceConstant.MYSQL_DRIVER);
-		// String URL = "jdbc:mysql://" + StockConstant.MYSQL_SERVER + "/" +
-		// StockConstant.DATABASE_NAME;
+		Class.forName(com.smartglossa.stock.StockConstant.MYSQL_DRIVER);
+		// String URL = "jdbc:mysql://" +
+		// com.smartglossa.stock.StockConstant.MYSQL_SERVER + "/" +
+		// com.smartglossa.stock.StockConstant.DATABASE_NAME;
 		String URL = "jdbc:mysql://localhost:3306/storesoft";
-		conn = DriverManager.getConnection(URL, PriceConstant.USERNAME, PriceConstant.PASSWORD);
+		conn = DriverManager.getConnection(URL, com.smartglossa.stock.StockConstant.USERNAME,
+				com.smartglossa.stock.StockConstant.PASSWORD);
 		stat = conn.createStatement();
 
 	}
