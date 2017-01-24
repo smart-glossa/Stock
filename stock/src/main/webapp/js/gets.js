@@ -3,7 +3,7 @@ function displaybill() {
 		$.ajax({
 		url : url,
 		type : 'POST'
-	}) //http://localhost:8080/stock/Product?operation=getParent
+	}) 
 	.done(
 		function(result) {
 			var array = JSON.parse(result);
@@ -25,7 +25,7 @@ function displaybill() {
 
 	}
 $(document).ready(function() {
-	 $(document).on("dblclick", ".ss", function() {
+	 $(document).on("click", ".prodid", function() {
 		   var prodid = $('.prodid').val();
 		//var tag = $(this).parent().parent();
 		//var prodid = tag.children(".prodid")[0].innerHTML;
