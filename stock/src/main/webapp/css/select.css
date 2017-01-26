@@ -1,7 +1,7 @@
 
 /* The CSS */
 select {
-    padding:5px;
+    padding:8px;
     margin: 0;
     width:200px;
     height:40px;
@@ -24,7 +24,7 @@ select {
 
 /* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    select {padding-right:18px}
+    select {padding-right:15px}
 }
 
 label {position:relative}
@@ -54,11 +54,12 @@ label:before {
 .sele2{
 	position:absolute;
 	left:550px;
-	top:230px;  
+	top:290px;  
 	z-index: -1; 
 }
 .ss{
 	position: absolute;
 	top:180px;
+	left:180px;
 	
 }
