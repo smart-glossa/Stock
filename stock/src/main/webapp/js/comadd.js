@@ -79,13 +79,11 @@
 		var h2Value = document.createTextNode("ADD PRODUCTNAME");
 		h2.appendChild(h2Value);
 		acDiv.appendChild(h2);
-
-		var l1 = document.createElement("label");
-		l1.id="lls";
+		
 		var l1Value = document.createTextNode("ProductName");
-		l1.appendChild(l1Value);
-		acDiv.appendChild(l1);
-
+		l1Value.className="proName";
+		acDiv.appendChild(l1Value);
+		
 		var input = document.createElement("input");
 		input.type="text";
 		input.id = 'prodName';

@@ -112,10 +112,17 @@ input[type='submit']:hover
 }
 .psub{
 	position: absolute;
-	left:680px;
-	top:320px; 
+	left:450px;
+	top:250px; 
 	
 }
 .indexfile{
 	 z-index: 1;
+}
+.proName{
+	font-size: 15px;
+	font-family:serif;
+	position: absolute;
+	top: 600px;
+	 
 }
