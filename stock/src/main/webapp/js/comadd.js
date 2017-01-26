@@ -24,7 +24,7 @@
 		drpVar += "      <a href=\"#\"><div onclick=\"myDom()\">Add productName<\/div><\/a>";
 		drpVar += "    <\/div>";
 		drpVar += "  <\/li>";
-		drpVar += "  <li><a href=\"#news\">News<\/a><\/li>";
+		drpVar += "  <li><a href=\"#news\"><div onclick=\"displaybill()\">ParentProductList<\/div><\/a><\/li>";
 		drpVar += "  <li class=\"dropdown\">";
 		drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
 		drpVar += "    <div class=\"dropdown-content\">";
