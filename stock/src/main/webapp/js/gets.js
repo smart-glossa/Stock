@@ -23,7 +23,7 @@ function displaybill() {
 		});
 
 	}
-	$(document).ready(function() {
+	//$(document).ready(function() {
 		$(document).on("click", ".ss", function() {
 			var prodid = $(this).val();
 			var url = "/stock/Product?operation=gets&prodid=" + prodid;
@@ -48,6 +48,6 @@ function displaybill() {
 
 				}).fail(function(result) {
 					console.log(result)
-				});
+				//});
 			});
 	})

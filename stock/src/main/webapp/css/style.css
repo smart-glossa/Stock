@@ -108,9 +108,14 @@ input[type='submit']:hover
 	position: absolute;
 	left: 830px;
 	top:230px;
+	
 }
 .psub{
 	position: absolute;
 	left:680px;
 	top:320px; 
+	
+}
+.indexfile{
+	 z-index: 1;
 }

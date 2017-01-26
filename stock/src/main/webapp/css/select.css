@@ -59,4 +59,5 @@ label:before {
 .ss{
 	position: absolute;
 	top:180px;
+	z-index: 1;
 }
