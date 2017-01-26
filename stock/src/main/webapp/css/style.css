@@ -104,3 +104,8 @@ input[type='submit']:hover
 	left: 510px;
 	top:150px;  
 }
+.pname{
+	position: absolute;
+	left: 900px;
+	top:500px;
+}

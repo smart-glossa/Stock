@@ -1,6 +1,6 @@
 function displaybill() {
 	var url = "/stock/Product?operation=getParent";
-		$.ajax({
+	$.ajax({
 		url : url,
 		type : 'POST'
 	}) 
@@ -8,13 +8,12 @@ function displaybill() {
 		function(result) {
 			var array = JSON.parse(result);
 			var query = "<select class='ss'>"
-					if(result!="undefined"){
-				for (var i = 0; i < array.length; i++) {
-					//query += "<option class='prodid'</option>"
+			if(result!="undefined"){
+				for (var i = 0; i < array.length;i++) {
 					query += "<option value="+ array[i].prodid +" class='prodid'>" + array[i].prodname+ "</option>";
-					//query += "<option>" + array[i].prodname+ "</option>";
 					
-									}
+					
+				}
 			}
 			query += "</select>"
 			$(".add")[0].innerHTML =query;
@@ -24,34 +23,31 @@ function displaybill() {
 		});
 
 	}
-$(document).ready(function() {
-	 $(document).on("click", ".prodid", function() {
-		   var prodid = $('.prodid').val();
-		//var tag = $(this).parent().parent();
-		//var prodid = tag.children(".prodid")[0].innerHTML;
-		//http://localhost:8080/stock/Product?operation=gets&prodid=1
-		var url = "/stock/Product?operation=gets&prodid=" + prodid;
-		$.ajax({
-		    url: url,
-		    type: 'POST'
-		}).done(function(result) {
-			
+	$(document).ready(function() {
+		$(document).on("click", ".ss", function() {
+			var prodid = $(this).val();
+			var url = "/stock/Product?operation=gets&prodid=" + prodid;
+			$.ajax({
+				url: url,
+				type: 'POST'
+			}).done(function(result) {
+				
 				var array = JSON.parse(result);
 				var query = "<select class='sele2'>"
 				query += "<tr><th>ParentProductName</th></tr>"
 				if(result!="undefined"){
 					for (var i = 0; i < array.length; i++) {
-					//	query += "<tr class='productRow'><td class='billno'>"
-						//+ array[i].billNO + "</td>";
 						query += "<option>" + array[i].prodname + "</option>";
 						
 					}
 				}
 				query += "</select>"
-				$(".adds")[0].innerHTML =query;
+					query += "<input type=\"text\" id=\"prodname\" placeholder=\"ParentProductName\" class=\"pname\">";
+					query +=  "<input type=\"submit\" id=\"parent\" class=\"psub\">";
+					$(".adds")[0].innerHTML =query;
 
-		}).fail(function(result) {
-		    console.log(result)
-		});
-		});
-})
+				}).fail(function(result) {
+					console.log(result)
+				});
+			});
+	})
