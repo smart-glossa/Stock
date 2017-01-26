@@ -54,10 +54,11 @@ label:before {
 .sele2{
 	position:absolute;
 	left:600px;
-	top:230px;   
+	top:230px;  
+	z-index: -1; 
 }
 .ss{
 	position: absolute;
 	top:180px;
-	z-index: 1;
+	
 }
