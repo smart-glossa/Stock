@@ -21,18 +21,18 @@
 		drpVar += "    <div class=\"dropdown-content\">";
 		drpVar += "      <a href=\"#\"><div onclick=\"adddetail()\">Add Detail<\/div><\/a>";
 		drpVar += "      <a href=\"#\"><div onclick=\"updatedetail()\">Update Detail<\/div><\/a>";
-		drpVar += "      <a href=\"#\"><div onclick=\"myDom()\">Add productName<\/div><\/a>";
+		drpVar += "      <a href=\"#\"><div onclick=\"productNameAdd()\">Add productName<\/div><\/a>";
 		drpVar += "    <\/div>";
 		drpVar += "  <\/li>";
 		drpVar += "  <li><a href=\"#news\"><div onclick=\"displaybill()\",\"displaybills()\"  class=\"indexfile\">ParentProductList<\/div><\/a><\/li>";
-		drpVar += "  <li class=\"dropdown\">";
-		drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
-		drpVar += "    <div class=\"dropdown-content\">";
-		drpVar += "      <a href=\"#\">Link 1<\/a>";
-		drpVar += "      <a href=\"#\">Link 2<\/a>";
-		drpVar += "      <a href=\"#\">Link 3<\/a>";
-		drpVar += "    <\/div>";
-		drpVar += "  <\/li>";
+		//drpVar += "  <li class=\"dropdown\">";
+		//drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
+		//drpVar += "    <div class=\"dropdown-content\">";
+		//drpVar += "      <a href=\"#\">Link 1<\/a>";
+		//drpVar += "      <a href=\"#\">Link 2<\/a>";
+		//drpVar += "      <a href=\"#\">Link 3<\/a>";
+		//drpVar += "    <\/div>";
+		//drpVar += "  <\/li>";
 		drpVar += "<\/ul>";
 		drpVar += "";
 		$('.drop')[0].innerHTML = drpVar;
@@ -62,6 +62,19 @@
 		priceVar += "<input type=\"text\" id=\"parid\" placeholder=\"PriceId\">";
 		priceVar += "<input type=\"submit\" value=\"SUBMIT\" id=\"priceAdd\">";
 		$('.add')[0].innerHTML = priceVar;	
+	}
+	function productNameAdd() {
+		var productVar="";
+		productVar += "<div class=\"prodss\">";
+		productVar += "<h2>PRODUCTNAME ADD<\/h2>";
+		productVar += "<input type=\"text\" id=\"prodName\" placeholder=\"ProductName\">";
+		productVar += "<\/div>";
+		productVar += "<div class=\"prodsss\">";
+		productVar += "<input type=\"submit\" value=\"ADD\" id=\"Addsubmit\">";
+		productVar += "<\/div>";
+		
+		$('.add')[0].innerHTML = productVar;
+		
 	}
 	/*************DOM function***************/
 	

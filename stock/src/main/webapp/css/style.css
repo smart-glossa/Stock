@@ -126,3 +126,13 @@ input[type='submit']:hover
 	top: 600px;
 	 
 }
+.prodss{
+	position: absolute;
+	top: 100px;
+	left:200px; 
+}
+.prodsss{
+	position: absolute;
+	left: 380px;
+	bottom:50px; 
+}
