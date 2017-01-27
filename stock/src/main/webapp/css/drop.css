@@ -42,7 +42,7 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #2F4F4F}
+.dropdown-content a:hover {background-color: #c0c0c0}
 
 .dropdown:hover .dropdown-content {
     display: block;
