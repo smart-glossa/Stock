@@ -7,16 +7,18 @@ function displaybill() {
 	.done(
 		function(result) {
 			var array = JSON.parse(result);
-			var query = "<select class='ss'>"
+			var qry = "<select class='ss'>"
 			if(result!="undefined"){
 				for (var i = 0; i < array.length;i++) {
-					query += "<option value="+ array[i].prodid +" class='prodid'>" + array[i].prodname+ "</option>";
+					qry += "<option value="+ array[i].prodid +" class='prodid'>" + array[i].prodname+ "</option>";
 					
 					
 				}
 			}
-			query += "</select>"
-				$(".adds")[0].innerHTML =query;
+			qry += "</select>"
+		
+
+				$(".add")[1].innerHTML =qry;
 			$(document).on("click", ".ss", function() {
 				var prodid = $(this).val();
 			var url = "/stock/Product?operation=gets&prodid=" + prodid;
@@ -38,11 +40,11 @@ function displaybill() {
 				query += "<input type=\"text\" id=\"prodname\" placeholder=\"ParentProductName\" class=\"pname\">";
 			query +=  "<input type=\"submit\" id=\"parent\" class=\"psub\">";
 			$(".add")[0].innerHTML =query;
-
+			
+			
 		}).fail(function() {
 
 		});
-
 	});
 })
 }
