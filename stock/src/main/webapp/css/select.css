@@ -53,13 +53,15 @@ label:before {
 }
 .sele2{
 	position:absolute;
-	left:550px;
-	top:290px;  
-	z-index: -1; 
+	left:180px;
+	top:270px;  
+	
 }
 .ss{
 	position: absolute;
 	top:180px;
 	left:180px;
+	z-index: -1;
+	
 	
 }

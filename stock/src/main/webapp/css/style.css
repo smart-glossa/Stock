@@ -128,11 +128,11 @@ input[type='submit']:hover
 }
 .prodss{
 	position: absolute;
-	top: 100px;
-	left:200px; 
+	top: 200px;
+	left:100px; 
 }
 .prodsss{
 	position: absolute;
-	left: 380px;
-	bottom:50px; 
+	left: 320px;
+	bottom:160px; 
 }
