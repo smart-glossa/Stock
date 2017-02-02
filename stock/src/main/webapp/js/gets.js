@@ -1,6 +1,63 @@
 var prodid;
 var prodid2;
 
+function productdislay() {
+    var url = "/stock/Product?operation=getParent";
+    $.ajax({
+            url: url,
+            type: 'POST'
+        })
+        .done(
+            function(result) {
+                var array = JSON.parse(result);
+                var qry = "<div class='productsname' >"
+
+                if (result != "undefined") {
+                    for (var i = 0; i < array.length; i++) {
+                        qry += "<p class=" + array[i].prodid + " class='prodid' id='datas'>" + array[i].prodname + "</p>";
+                    }
+                }
+                qry += "</div>"
+                $(".prod").append(qry);
+            }).fail(function(result) {
+            alert(result);
+        });
+}
+
+$(document).on('click','#datas',function() {
+            prodid = $('.prodid').val();
+            prod = $($(this)[0]).text();
+        var prodid2 = $(this).val();
+        var url = "/stock/Product?operation=gets&prodid=" + prodid2;
+        $.ajax({
+            url: url,
+            type: 'POST'
+        }).done(function(result) {
+            var response = JSON.parse(result);
+            var columns = response.columnName;
+            if ($(".third").length > 0) {
+                $(".third").remove();
+            }
+            var table = "<div class=third><h3>" + tableName + " </h3><table>";
+            for (var i = 0; i < columns.length; i++) {
+                table += "<th class=\"green\">" + columns[i] + "</th>"
+            }
+            table += "</div>"
+            var rowCount = response.keys.length;
+            for (var i = 0; i < rowCount; i++) {
+                var row = response['r' + i];
+                table += "<tr class=row>"
+                for (var j = 0; j < columns.length; j++) {
+                    table += "<td class=td>" + row[j] + "</td>"
+                }
+                table += "</tr>";
+            }
+            $("#table").append(table);
+        }).fail(function(result) {
+        })
+    });
+
+/*
 function displaybill() {
     var url = "/stock/Product?operation=getParent";
     $.ajax({
@@ -85,7 +142,7 @@ $(document).on("change", ".select2", function() {
 
         }).fail(function() {});
     });
-});
+});*/
 $(document).on("click", "#parent1", function(key) {
     var prodname = $('#prodname1').val();
     if (prodname === "") {

@@ -1,49 +1,68 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
+/* CSS3 */
 
-li {
-    float: left;
-}
-
-li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color:#20B2AA;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
+/* The whole thing */
+.sidenav {
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 140px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+.sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
+    font-size: 25px;
+    color: #008080;
     display: block;
-    text-align: left;
+    transition: 0.3s
 }
 
-.dropdown-content a:hover {background-color: #c0c0c0}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
 }
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.productsname{
+	position:absolute;
+	padding:110px 0px;
+	z-index:1;
+	font-size:20px;
+	font-family:"Times New Roman", Times, serif;
+	color:white;      
+}
+#prod, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+
+}
+
+#prod {
+    padding: 20px;
+    display: none;
+}
+.prodid {
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .prodid:hover {
+    background:#008080;
+  }

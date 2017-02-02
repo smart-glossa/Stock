@@ -27,20 +27,38 @@
 		drpVar += "    <\/div>";
 		drpVar += "  <\/li>";
 		drpVar += "  <li><a href=\"#\" id=\"dis4\"><div onclick=\"displaybill()\" >ParentProductList<\/div><\/a><\/li>";
-		//drpVar += "  <li class=\"dropdown\">";
-		//drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
-		//drpVar += "    <div class=\"dropdown-content\">";
-		//drpVar += "      <a href=\"#\">Link 1<\/a>";
-		//drpVar += "      <a href=\"#\">Link 2<\/a>";
-		//drpVar += "      <a href=\"#\">Link 3<\/a>";
-		//drpVar += "    <\/div>";
-		//drpVar += "  <\/li>";
+		drpVar += "  <li class=\"dropdown\">";
+		drpVar += "    <a href=\"javascript:void(0)\" class=\"dropbtn\">Dropdown<\/a>";
+		drpVar += "    <div class=\"dropdown-content\">";
+		drpVar += "      <a href=\"#\"  ><span class=\"context-menu-one btn btn-neutral\">right click me</span><\/a>";
+		drpVar += "      <a href=\"#\">Link 2<\/a>";
+		drpVar += "      <a href=\"#\">Link 3<\/a>";
+		drpVar += "    <\/div>";
+		drpVar += "  <\/li>";
 		drpVar += "<\/ul>";
 		drpVar += "";
 		
 		$('.drop')[0].innerHTML = drpVar;
 	}
+   function Mens(){
+	   var menuVar="";
+	   menuVar += "<div class=\"custom-menu\">";
+	   menuVar += "<div id=\"mySidenav\" class=\"sidenav\">";
+	   menuVar += "  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;<\/a>";
+	   menuVar += "  <a href=\"#\" onclick=\"adddetail()\">Add Detail<\/a>";
+	   menuVar += "  <a href=\"#\" onclick=\"updatedetail()\">Update Detail<\/a>";
+	   menuVar += "  <a href=\"#\" onclick=\"myFunction()\"><div id=\"filp\">Add productName<\/div><\/a>";
+	  // menuVar += "  <a href=\"#\">Contact<\/a>";
+	   menuVar += "<\/div>";
+	   menuVar += "<\/div>";
+	   $('.drop')[0].innerHTML = menuVar;
 
+   }
+   function myFunction(){
+	   productdislay();
+	   productNameAdd();
+	}
+  
 	/**************Update company detail**********/
 	
 	function updatedetail() {
@@ -70,7 +88,6 @@
 	}
 	function productNameAdd() {
 		var productVar="";
-		//productVar +="<div id=\"div3\>";
 		productVar += "<p id=\"comy\"> ADD PRODUCTNAME<\/p>";
 		productVar += "<div class=\"prodss\">";
 		productVar += "<input type=\"text\" id=\"prodName\" placeholder=\"ProductName\">";
@@ -78,8 +95,7 @@
 		productVar += "<div class=\"prodsss\">";
 		productVar += "<input type=\"submit\" value=\"ADD\" id=\"Addsubmit\">";
 		productVar += "<\/div>";
-		//productVar +="<\/div>";
-		$('.add')[0].innerHTML = productVar;
+		$('.add')[0].innerHTML=productVar;
 		
 	}
 	/*************DOM function***************/

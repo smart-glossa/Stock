@@ -3,7 +3,8 @@ $(document).ready(function(){
 	div.className = "add";
 	
 	$("body")[0].appendChild(div);
-	$(".add")[0].appendChild(Menu());
+	$(".add")[0].appendChild(Mens());
+	
 	//$(".add")[0].appendChild(displaybill());
 	
 	
