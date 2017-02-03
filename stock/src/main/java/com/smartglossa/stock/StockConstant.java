@@ -6,7 +6,7 @@ public class StockConstant {
 	public static String MYSQL_SERVER = System.getProperty("stock.mysql.server");;
 	//public static String USERNAME = System.getProperty("stock.mysql.username");
 	//public static String PASSWORD = System.getProperty("stock.mysql.password");
-	 public static String USERNAME = "root";
-	 public static String PASSWORD = "root";
+	public static String USERNAME = "root";
+    public static String PASSWORD = "root";
 
 }

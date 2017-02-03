@@ -40,25 +40,25 @@
 		
 		$('.drop')[0].innerHTML = drpVar;
 	}
-   function Mens(){
-	   var menuVar="";
-	   menuVar += "<div class=\"custom-menu\">";
-	   menuVar += "<div id=\"mySidenav\" class=\"sidenav\">";
-	   menuVar += "  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;<\/a>";
-	   menuVar += "  <a href=\"#\" onclick=\"adddetail()\">Add Detail<\/a>";
-	   menuVar += "  <a href=\"#\" onclick=\"updatedetail()\">Update Detail<\/a>";
-	   menuVar += "  <a href=\"#\" onclick=\"myFunction()\"><div id=\"filp\">Add productName<\/div><\/a>";
+	function Mens(){
+		var menuVar="";
+		menuVar += "<div class=\"custom-menu\">";
+		menuVar += "<div id=\"mySidenav\" class=\"sidenav\">";
+		menuVar += "  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;<\/a>";
+		menuVar += "  <a href=\"#\" onclick=\"adddetail()\">Add Detail<\/a>";
+		menuVar += "  <a href=\"#\" onclick=\"updatedetail()\">Update Detail<\/a>";
+		menuVar += "  <a href=\"#\" onclick=\"myFunction()\"><div id=\"filp\">Add productName<\/div><\/a>";
 	  // menuVar += "  <a href=\"#\">Contact<\/a>";
-	   menuVar += "<\/div>";
-	   menuVar += "<\/div>";
-	   $('.drop')[0].innerHTML = menuVar;
+	  menuVar += "<\/div>";
+	  menuVar += "<\/div>";
+	  $('.drop')[0].innerHTML = menuVar;
 
-   }
-   function myFunction(){
-	   productdislay();
-	   productNameAdd();
 	}
-  
+	function myFunction(){
+		productdislay();
+		productNameAdd();
+	}
+	
 	/**************Update company detail**********/
 	
 	function updatedetail() {

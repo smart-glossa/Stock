@@ -62,20 +62,20 @@
     color: white;
     margin: 5px;
     cursor: pointer;
-  }
-  .prodid:hover {
+}
+.prodid:hover {
     background:#008080;
-  }
-  
-  /*table design*/
-  #parentTable {
+}
+
+/*table design*/
+#parentTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100px;
-    position:absolute;
-    left:1100px;
-    bottom:350px;  
-   
+    position:static;
+    margin-left:1100px ;
+    margin-top:40px;   
+    
 }
 
 #parentTable td, #parentTable th {
@@ -95,5 +95,5 @@
     background-color: #008080;
     color: white;
     
-      
+    
 }
