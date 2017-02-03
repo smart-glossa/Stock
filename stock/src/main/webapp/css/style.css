@@ -2,7 +2,8 @@ body{
 	/*background-color:#FFFAFA;*/ 
 }
 span{
-	color:#3CB371;   
+	color:#3CB371; 
+	content: "\f139";  
 }
 td{
 	font-size:22px;
@@ -129,10 +130,23 @@ input[type='submit']:hover
 .prodss{
 	position: absolute;
 	top: 200px;
-	left:100px; 
+	left:300px; 
 }
 .prodsss{
 	position: absolute;
-	left: 320px;
-	bottom:160px; 
+	left: 250px;
+	bottom:23px;  
+}
+.pardss{
+	position: absolute;
+	top: 260px;
+	left:300px; 
+}
+.pardsss{
+	position: absolute;
+	left: 415px;
+	top:340px; 
+}
+.colorss{
+	color: red;
 }

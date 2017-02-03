@@ -10,3 +10,8 @@ $(document).ready(function(){
         $(".prod").slideToggle("slow");
     });
 });
+$(document).ready(function(){
+    $("#parentTable").click(function(){
+        $(".prod").slideToggle("slow");
+    });
+});

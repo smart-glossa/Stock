@@ -14,7 +14,9 @@ function productdislay() {
 
                 if (result != "undefined") {
                     for (var i = 0; i < array.length; i++) {
-                        qry += "<p class=" + array[i].prodid + " class='prodid' id='datas'>" + array[i].prodname + "</p>";
+                    
+                        qry += "<p id=" + array[i].prodid +"  class='datas'>" + array[i].prodname + "</p>";
+                        
                     }
                 }
                 qry += "</div>"
@@ -24,39 +26,59 @@ function productdislay() {
         });
 }
 
-$(document).on('click','#datas',function() {
-            prodid = $('.prodid').val();
-            prod = $($(this)[0]).text();
-        var prodid2 = $(this).val();
-        var url = "/stock/Product?operation=gets&prodid=" + prodid2;
-        $.ajax({
-            url: url,
-            type: 'POST'
-        }).done(function(result) {
-            var response = JSON.parse(result);
-            var columns = response.columnName;
-            if ($(".third").length > 0) {
-                $(".third").remove();
+$(document).on('click','.datas',function() {
+            prodid = this.id;
+            prodname = $(this).text();
+        var url = "/stock/Product?operation=gets&prodid=" + prodid;
+        $.ajax(url).done(function(result) {
+            var rs = JSON.parse(result);
+            if ($(".second").length > 0) {
+                $(".second").remove();
             }
-            var table = "<div class=third><h3>" + tableName + " </h3><table>";
-            for (var i = 0; i < columns.length; i++) {
-                table += "<th class=\"green\">" + columns[i] + "</th>"
+            var div2 = document.createElement("div");
+            document.body.appendChild(div2);
+            div2.setAttribute("class", "second");
+            var table = document.createElement("table");
+            table.setAttribute("id","parentTable");
+            var th = document.createElement("th");
+            table.appendChild(th);
+            th.setAttribute("class", "row header blue");
+            $(th).append("ProductName  " +  prodname +" In ParentProductName")
+             
+            div2.appendChild(table);
+            for (var i = 0; i < rs.length; i++) {
+                var tr = document.createElement("tr");
+                table.appendChild(tr);
+                tr.setAttribute("id", "tableName");
+                tr.setAttribute("class", "row");
+                $(tr).append(rs[i]);
             }
-            table += "</div>"
-            var rowCount = response.keys.length;
-            for (var i = 0; i < rowCount; i++) {
-                var row = response['r' + i];
-                table += "<tr class=row>"
-                for (var j = 0; j < columns.length; j++) {
-                    table += "<td class=td>" + row[j] + "</td>"
-                }
-                table += "</tr>";
-            }
-            $("#table").append(table);
-        }).fail(function(result) {
-        })
+            
+        }).fail(function(result) {})
     });
 
+$(document).on('click','#parentAdd',function(){
+	$('.datas').each(function(e) {
+		prodid = $(this).val();
+	//prodid = this.id;
+	parent=$('#parentName').val();
+	 if (parent === "") {
+	        alert("Please Enter ParentProductName");
+	        $("#parentName").focus().css("outline-color", "#ff0000");
+	        return;
+	    }
+	var url="/stock/Product?operation=productAdd&prodName=" + parent + "&parentid=" + prodid;
+    $.ajax({
+        url: url,
+        type: 'POST'
+    })
+    .done(
+        function(result) {
+            var array = JSON.parse(result);
+            alert("succfully added");
+        })
+})
+})
 /*
 function displaybill() {
     var url = "/stock/Product?operation=getParent";

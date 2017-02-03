@@ -71,13 +71,13 @@ public class ProductClass {
 	public JSONArray getParentProduct(int prodid) throws SQLException {
 		JSONArray obj = new JSONArray();
 		try {
-			String query = "select productId,productName from product where parentProductId=" + prodid;
+			String query = "select productName from product where parentProductId=" + prodid;
 			res = stat.executeQuery(query);
 			while (res.next()) {
-				JSONObject obj1 = new JSONObject();
-				obj1.put("prodid", res.getInt(1));
-				obj1.put("prodname", res.getString(2));
-				obj.put(obj1);
+				//JSONObject obj1 = new JSONObject();
+				//obj.put( res.getInt(1));
+				obj.put( res.getString(1));
+				//obj.put(obj1);
 			}
 		} finally {
 			closeConnection();

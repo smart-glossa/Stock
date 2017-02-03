@@ -88,16 +88,23 @@
 	}
 	function productNameAdd() {
 		var productVar="";
-		productVar += "<p id=\"comy\"> ADD PRODUCTNAME<\/p>";
+		productVar += "<p id=\"comy\"> ADD PRODUCTNAME &<span class=\"colorss\"> PARENTPRODUCT<\/span><\/p>";
 		productVar += "<div class=\"prodss\">";
 		productVar += "<input type=\"text\" id=\"prodName\" placeholder=\"ProductName\">";
 		productVar += "<\/div>";
 		productVar += "<div class=\"prodsss\">";
-		productVar += "<input type=\"submit\" value=\"ADD\" id=\"Addsubmit\">";
+		productVar += "<input type=\"submit\" value=\"PRODUCT\" id=\"Addsubmit\">";
+		productVar += "<\/div>";
+		productVar += "<div class=\"pardss\">";
+		productVar += "<input type=\"text\" id=\"parentName\" placeholder=\"ParentProductName\">";
+		productVar += "<\/div>";
+		productVar += "<div class=\"pardsss\">";
+		productVar += "<input type=\"submit\" value=\"PARENT\" id=\"parentAdd\">";
 		productVar += "<\/div>";
 		$('.add')[0].innerHTML=productVar;
 		
 	}
+	
 	/*************DOM function***************/
 	
 	function myDom() {

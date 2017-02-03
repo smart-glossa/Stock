@@ -66,3 +66,34 @@
   .prodid:hover {
     background:#008080;
   }
+  
+  /*table design*/
+  #parentTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100px;
+    position:absolute;
+    left:1100px;
+    bottom:350px;  
+   
+}
+
+#parentTable td, #parentTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+}
+
+#parentTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#parentTable tr:hover {background-color: #ddd;}
+
+#parentTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #008080;
+    color: white;
+    
+      
+}
